@@ -55,11 +55,9 @@ contract("TestMerkle", (accounts) => {
       }
     }
 
-    const tree = new MerkleTree(leaves, (buff) => {
-      const digest = keccak256(buff);
-      assert(digest, `empty digest`);
-
-      return digest;
+    const tree = new MerkleTree(leaves, keccak256, {
+      hashLeaves: false,
+      sortPairs: true,
     });
 
     // verify merkle proof
@@ -72,7 +70,6 @@ contract("TestMerkle", (accounts) => {
         const leaf = hash(account, amount);
         const proof = tree.getHexProof(leaf);
 
-        // TODO: fix
         const valid = await contract.verify(
           root,
           proof,

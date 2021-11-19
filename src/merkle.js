@@ -41,17 +41,9 @@ async function main() {
     }
   }
 
-  const tree = new MerkleTree(leaves, (buff) => {
-    // buff = left + right leaves
-    // const digest = web3.utils.soliditySha3({
-    //   type: "bytes",
-    //   value: `0x${buff.toString("hex")}`,
-    // });
-
-    const digest = keccak256(buff);
-    assert(digest, `empty digest`);
-
-    return digest;
+  const tree = new MerkleTree(leaves, keccak256, {
+    hashLeaves: false,
+    sortPairs: true,
   });
 
   // console.log(tree.toString());
