@@ -2,12 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Web3 = require("web3");
 const IERC20 = require("./IERC20.json");
-const { readFile } = fs.promises;
-
-async function read(filePath) {
-  const buff = await readFile(filePath);
-  return buff.toString();
-}
+const { read } = require("./lib");
 
 const BATCH_SIZE = 1000;
 
