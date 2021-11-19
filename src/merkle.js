@@ -1,5 +1,4 @@
 const assert = require("assert");
-const fs = require("fs");
 const path = require("path");
 const Web3 = require("web3");
 const { MerkleTree } = require("merkletreejs");
@@ -57,6 +56,7 @@ async function main() {
 
   // console.log(tree.toString());
 
+  console.log(`--- merkle root ---`);
   const root = tree.getRoot().toString("hex");
   console.log(`0x${root}`);
 }
