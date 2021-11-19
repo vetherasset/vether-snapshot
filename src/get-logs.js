@@ -7,7 +7,7 @@ const { read } = require("./lib");
 const BATCH_SIZE = 1000;
 
 async function main() {
-  const writeStream = fs.createWriteStream(path.join(__dirname, "../out.csv"));
+  const writeStream = fs.createWriteStream(path.join(__dirname, "../logs.csv"));
 
   const config = JSON.parse(await read(path.join(__dirname, "../config.json")));
   console.log(config);

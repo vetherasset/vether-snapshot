@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/vetherasset/vether-snapshot#readme",
   "dependencies": {
-    "csv-parser": "^3.0.0",
+    "csv-parse": "^5.0.2",
     "web3": "^1.6.1"
   }
 }
