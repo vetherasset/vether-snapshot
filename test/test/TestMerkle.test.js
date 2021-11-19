@@ -1,4 +1,7 @@
 const Web3 = require("web3");
+const { MerkleTree } = require("merkletreejs");
+const keccak256 = require("keccak256");
+const data = require("./data.json");
 const TestMerkle = artifacts.require("TestMerkle");
 
 const web3 = new Web3("http://localhost:9545");
@@ -38,5 +41,49 @@ contract("TestMerkle", (accounts) => {
     );
 
     assert.equal(d, digest);
+  });
+
+  it("should verify merkle proofs", async () => {
+    // build merkle tree
+    const leaves = [];
+    for (const [account, amount] of Object.entries(data)) {
+      if (amount != "0") {
+        const digest = hash(account, amount);
+        assert(digest, `empty digest`);
+
+        leaves.push(digest);
+      }
+    }
+
+    const tree = new MerkleTree(leaves, (buff) => {
+      const digest = keccak256(buff);
+      assert(digest, `empty digest`);
+
+      return digest;
+    });
+
+    // verify merkle proof
+    const root = tree.getHexRoot();
+
+    for (const [account, amount] of Object.entries(data)) {
+      if (amount != "0") {
+        console.log(`verifying ${account} ${amount}`);
+
+        const leaf = hash(account, amount);
+        const proof = tree.getHexProof(leaf);
+
+        // TODO: fix
+        const valid = await contract.verify(
+          root,
+          proof,
+          leaf,
+          account,
+          amount,
+          CONVERTER,
+          CHAIN_ID
+        );
+        assert.equal(valid, true);
+      }
+    }
   });
 });

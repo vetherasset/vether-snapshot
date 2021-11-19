@@ -57,7 +57,7 @@ async function main() {
   // console.log(tree.toString());
 
   console.log(`--- merkle root ---`);
-  const root = tree.getRoot().toString("hex");
+  const root = tree.getHexRoot();
   console.log(`0x${root}`);
 }
 

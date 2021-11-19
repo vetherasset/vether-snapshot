@@ -17,7 +17,13 @@ contract TestMerkle {
       );
     }
 
-    function verify(bytes32 root, bytes32[] calldata proof, bytes32 leaf) external returns (bool) {
+    function verify(
+      bytes32 root, bytes32[] calldata proof, bytes32 _leaf,
+      address account, uint amount, address _contract, uint chainId
+    ) external view returns (bool) {
+      bytes32 leaf = getMessageHash(account, amount, _contract, chainId);
+      // extra check on message hash
+      require(leaf == _leaf, "leaf != input");
       return proof.verify(root, leaf);
     }
 
