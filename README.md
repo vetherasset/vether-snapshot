@@ -3,5 +3,5 @@
 ```shell
 npm i
 
-cp .env.sample.json .env.json
+cp config.sample.json config.json
 ```
