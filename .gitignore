@@ -5,3 +5,4 @@ package-lock.json
 !.env.sample
 config.json
 !config.sample.json
+out.csv

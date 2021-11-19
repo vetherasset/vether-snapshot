@@ -17,5 +17,7 @@
     "url": "https://github.com/vetherasset/vether-snapshot/issues"
   },
   "homepage": "https://github.com/vetherasset/vether-snapshot#readme",
-  "dependencies": {}
+  "dependencies": {
+    "web3": "^1.6.1"
+  }
 }

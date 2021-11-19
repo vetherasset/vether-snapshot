@@ -1,6 +1,6 @@
 {
   "provider": "https://mainnet.infura.io/v3/<key>",
-  "contractAddress": "",
+  "address": "",
   "fromBlock": 0,
-  "toBlock": "latest"
+  "toBlock": 0
 }
