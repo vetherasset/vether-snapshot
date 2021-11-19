@@ -19,6 +19,8 @@
   "homepage": "https://github.com/vetherasset/vether-snapshot#readme",
   "dependencies": {
     "csv-parse": "^5.0.2",
+    "keccak256": "^1.0.3",
+    "merkletreejs": "^0.2.24",
     "web3": "^1.6.1"
   }
 }
