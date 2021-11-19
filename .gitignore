@@ -6,3 +6,4 @@ package-lock.json
 config.json
 !config.sample.json
 logs.csv
+snapshot.json

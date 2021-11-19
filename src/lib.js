@@ -6,6 +6,11 @@ async function read(filePath) {
   return buff.toString();
 }
 
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 module.exports = {
   read,
+  sleep,
 };
