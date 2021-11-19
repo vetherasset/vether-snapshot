@@ -39,6 +39,8 @@ async function main() {
   }
 
   writeStream.end();
+
+  console.log("logs saved to logs.csv");
 }
 
 main();
