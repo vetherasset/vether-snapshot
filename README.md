@@ -43,7 +43,7 @@ npx truffle test
 
 ### Snapshots
 
-| chain | block height |
-| ----- | ------------ |
-| main  | 13662469     |
-| kovan | 13639670     |
+| chain | block height | merkle root                                                          |
+| ----- | ------------ | -------------------------------------------------------------------- |
+| main  | 13662469     | 0x0x93bc4275f0e850574c848d04f1a8edbb63a1d961524541e618d28f31b2c6684d |
+| kovan | 13639670     |                                                                      |
