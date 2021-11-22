@@ -6,12 +6,12 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 contract TestMerkle {
     using MerkleProof for bytes32[];
 
-    function getMessageHash(address account, uint amount, address _contract, uint chainId) public view returns (bytes32) {
+    function getMessageHash(address account, uint amount, uint _salt, uint chainId) public view returns (bytes32) {
       return keccak256(
           abi.encodePacked(
               account,
               amount,
-              _contract,
+              _salt,
               chainId
           )
       );
@@ -19,9 +19,9 @@ contract TestMerkle {
 
     function verify(
       bytes32 root, bytes32[] calldata proof, bytes32 _leaf,
-      address account, uint amount, address _contract, uint chainId
+      address account, uint amount, uint _salt, uint chainId
     ) external view returns (bool) {
-      bytes32 leaf = getMessageHash(account, amount, _contract, chainId);
+      bytes32 leaf = getMessageHash(account, amount, _salt, chainId);
       // extra check on message hash
       require(leaf == _leaf, "leaf != input");
       return proof.verify(root, leaf);
