@@ -6,6 +6,7 @@ const TestMerkle = artifacts.require("TestMerkle");
 
 const web3 = new Web3("http://localhost:9545");
 
+// TODO: test with mainnet params
 const SALT = 999;
 const CHAIN_ID = 1;
 
@@ -49,6 +50,8 @@ contract("TestMerkle", (accounts) => {
         leaves.push(digest);
       }
     }
+
+    console.log(`leaves: ${leaves.length}`);
 
     const tree = new MerkleTree(leaves, keccak256, {
       hashLeaves: false,
