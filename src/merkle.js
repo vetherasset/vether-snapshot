@@ -5,14 +5,11 @@ const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
 const { read } = require("./lib");
 
-const CONVERTER = {
-  // TODO: mainnet converter address
-  1: "0x49CD0e2C632FBb9765520798a93272BeB44278bC",
-  42: "0x49CD0e2C632FBb9765520798a93272BeB44278bC",
+const SALT = {
+  // using block height for salt
+  1: 13662469,
+  42: 13639670,
 };
-
-// TODO: test message hash with contract
-// TODO: test merkle proof with contract
 
 async function main() {
   const config = JSON.parse(await read(path.join(__dirname, "../config.json")));
@@ -21,8 +18,8 @@ async function main() {
   const web3 = new Web3(config.provider);
   const chainId = await web3.eth.net.getId();
 
-  const converter = CONVERTER[chainId];
-  assert(converter, "Converter undefined");
+  const salt = SALT[chainId];
+  assert(salt, "salt undefined");
 
   const leaves = [];
   for (const [account, amount] of Object.entries(data)) {
@@ -30,7 +27,7 @@ async function main() {
       const values = [
         { type: "address", value: account },
         { type: "uint256", value: amount },
-        { type: "address", value: converter },
+        { type: "uint256", value: salt },
         { type: "uint256", value: chainId },
       ];
 
