@@ -15,3 +15,10 @@ cp snapshot.json test/test/data.json
 cd test
 npx truffle test
 ```
+
+### Snapshots
+
+| chain | block height |
+| ----- | ------------ |
+| main  | 13662469     |
+| kovan | 13639670     |
