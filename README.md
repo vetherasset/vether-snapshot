@@ -1,17 +1,17 @@
 # vether-snapshot
 
-TODO: snapshot at ann height
-
-````shell
+```shell
 npm i
 cd test && npm i
 
 cp config.sample.json config.json
+```
 
 ### 1. Get logs
+
 ```shell
 node src/get-logs.js
-````
+```
 
 ### 2. Create snapshot
 
@@ -19,7 +19,7 @@ node src/get-logs.js
 # set web3 provider Alchemy
 WEB3_PROVIDER=https://eth-mainnet.alchemyapi.io/v2/<api key here>
 # set block height of snapshot
-BLOCK=13639670
+BLOCK=13662469
 
 # run ganache
 npx ganache-cli --fork $WEB3_PROVIDER@$BLOCK
