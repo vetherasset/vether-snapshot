@@ -1,16 +1,41 @@
 # vether-snapshot
 
-```shell
+TODO: snapshot at ann height
+
+````shell
 npm i
 cd test && npm i
 
 cp config.sample.json config.json
 
+### 1. Get logs
+```shell
 node src/get-logs.js
-node src/snapshot.js
-node src/merkle.js
+````
 
-# test
+### 2. Create snapshot
+
+```shell
+# set web3 provider Alchemy
+WEB3_PROVIDER=https://eth-mainnet.alchemyapi.io/v2/<api key here>
+# set block height of snapshot
+BLOCK=13639670
+
+# run ganache
+npx ganache-cli --fork $WEB3_PROVIDER@$BLOCK
+
+node src/snapshot.js
+```
+
+### 3. Compute Merkle root
+
+```shell
+node src/merkle.js
+```
+
+# 4. Test
+
+```shell
 cp snapshot.json test/test/data.json
 cd test
 npx truffle test
