@@ -59,6 +59,7 @@ contract("TestMerkle", (accounts) => {
 
     // verify merkle proof
     const root = tree.getHexRoot();
+    console.log(`root: ${root}`);
 
     for (const [account, amount] of Object.entries(data)) {
       if (amount != "0") {
