@@ -47,7 +47,7 @@ async function main() {
 
   console.log(`--- merkle root ---`);
   const root = tree.getHexRoot();
-  console.log(`0x${root}`);
+  console.log(root);
 }
 
 main();
