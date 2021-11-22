@@ -33,7 +33,7 @@ node src/snapshot.js
 node src/merkle.js
 ```
 
-# 4. Test
+### 4. Test
 
 ```shell
 cp snapshot.json test/test/data.json
