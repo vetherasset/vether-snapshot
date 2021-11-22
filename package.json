@@ -22,5 +22,8 @@
     "keccak256": "^1.0.3",
     "merkletreejs": "^0.2.24",
     "web3": "^1.6.1"
+  },
+  "devDependencies": {
+    "ganache-cli": "^6.12.2"
   }
 }
