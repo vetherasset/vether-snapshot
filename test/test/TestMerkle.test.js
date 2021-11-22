@@ -4,10 +4,9 @@ const keccak256 = require("keccak256");
 const data = require("./data.json");
 const TestMerkle = artifacts.require("TestMerkle");
 
-const web3 = new Web3("http://localhost:9545");
+const web3 = new Web3("http://localhost:8545");
 
-// TODO: test with mainnet params
-const SALT = 999;
+const SALT = 13662469;
 const CHAIN_ID = 1;
 
 function hash(account, amount) {
