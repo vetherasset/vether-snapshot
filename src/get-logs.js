@@ -21,18 +21,20 @@ async function main() {
     console.log(`--- blocks: ${fromBlock} - ${toBlock} ---`);
 
     const logs = await contract.getPastEvents("Transfer", {
-      fromBlock: config.fromBlock,
-      toBlock: config.toBlock,
+      fromBlock,
+      toBlock,
     });
 
     for (const log of logs) {
+      const { blockNumber } = log;
       const { from, to, amount } = log.returnValues;
       console.log({
+        blockNumber,
         from,
         to,
         amount,
       });
-      writeStream.write(`${from},${to},${amount}\n`);
+      writeStream.write(`${blockNumber},${from},${to},${amount}\n`);
     }
 
     fromBlock += BATCH_SIZE + 1;
