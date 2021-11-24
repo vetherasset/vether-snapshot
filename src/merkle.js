@@ -8,7 +8,7 @@ const { read } = require("./lib");
 const SALT = {
   // using block height for salt
   1: 13662469,
-  42: 13639670,
+  42: 28516565,
 };
 
 async function main() {

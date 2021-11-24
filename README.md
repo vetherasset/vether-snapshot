@@ -2,9 +2,10 @@
 
 ```shell
 npm i
-cd test && npm i
 
 cp config.sample.json config.json
+
+cd test && npm i
 ```
 
 ### 1. Get logs
@@ -46,4 +47,4 @@ npx truffle test
 | chain | block height | contract                                   | merkle root                                                        |
 | ----- | ------------ | ------------------------------------------ | ------------------------------------------------------------------ |
 | main  | 13662469     | 0x4Ba6dDd7b89ed838FEd25d208D4f644106E34279 | 0x93bc4275f0e850574c848d04f1a8edbb63a1d961524541e618d28f31b2c6684d |
-| kovan | 13639670     |                                            |                                                                    |
+| kovan | 28516565     | 0x87D96b9f386d70C72fD7DBcE5a3d2a7D3321446d | 0x076beee425cd687f1c68f81585d9cd19398b7e80cdcc48465c175e959946fdcd |
