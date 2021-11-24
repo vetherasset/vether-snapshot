@@ -68,6 +68,11 @@ contract("TestMerkle", (accounts) => {
         const leaf = hash(account, amount);
         const proof = tree.getHexProof(leaf);
 
+        // console.log(account);
+        // console.log(amount);
+        // console.log(proof);
+        // console.log("------------------------");
+
         const valid = await contract.verify(
           root,
           proof,
