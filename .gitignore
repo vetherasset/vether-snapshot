@@ -8,6 +8,6 @@ config.json
 !config.sample.json
 logs.csv
 snapshot.json
-!snapshot/logs.csv
-!snapshot/snapshot.json
+!snapshot/mainnet/logs.csv
+!snapshot/mainnet/snapshot.json
 tmp
