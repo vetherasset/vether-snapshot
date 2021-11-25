@@ -17,12 +17,16 @@ async function main() {
 
   const web3 = new Web3(config.provider);
   const chainId = await web3.eth.net.getId();
+  console.log(`chain id: ${chainId}`);
 
   const salt = SALT[chainId];
   assert(salt, "salt undefined");
+  console.log(`salt: ${salt}`);
 
   const leaves = [];
   for (const [account, amount] of Object.entries(data)) {
+    // console.log(account, amount, amount != "0");
+
     if (amount != "0") {
       const values = [
         { type: "address", value: account },
